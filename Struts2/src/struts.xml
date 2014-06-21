@@ -6,11 +6,12 @@
 
 <struts>
     <package name="user" extends="struts-default">
-        <action name="login" class="demo.action.LoginAction">
+        <action name="login" class="demo.action.UserAction" method="login">
             <result name="success">/home.jsp</result>
+            <result name="input">/index.jsp</result>
         </action>
-        <action name="signup" class="demo.action.SignupAction">
-            <result name="sucess">/index.jsp</result>
-        </action>从
+        <action name="signup" class="demo.action.UserAction" method="signup">
+            <result name="success">/index.jsp</result>
+        </action>
     </package>
 </struts>
