@@ -12,9 +12,9 @@
 </head>
 <body>
 <h1>Sign up page</h1>
-<form action="signup" method="post">
-    username: <input name="username"><br>
-    password: <input type="password" name="password"><br>
+<form action="user_signup" method="post">
+    username: <input name="user.username"><br>
+    password: <input type="password" name="user.password"><br>
     <input type="submit" value="SIGN UP">
 </form>
 </body>
