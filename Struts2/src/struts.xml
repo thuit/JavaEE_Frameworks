@@ -9,5 +9,8 @@
         <action name="login" class="demo.action.LoginAction">
             <result name="success">/home.jsp</result>
         </action>
+        <action name="signup" class="demo.action.SignupAction">
+            <result name="sucess">/index.jsp</result>
+        </action>从
     </package>
 </struts>
