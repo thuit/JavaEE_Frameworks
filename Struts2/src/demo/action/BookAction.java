@@ -2,12 +2,11 @@ package demo.action;
 
 import demo.action.entity.Book;
 import demo.action.util.DB;
+import demo.action.util.HibernateUtil;
+import org.hibernate.Query;
+import org.hibernate.Session;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by Administrator on 14-6-21.
@@ -17,53 +16,41 @@ public class BookAction extends BaseAction {
     private Connection connection = DB.getConnection();
 
     public String add() throws Exception {
-        PreparedStatement preparedStatement = connection.prepareStatement("insert into book values(null, ?, ?, ?)");
-        preparedStatement.setString(1, book.getTitle());
-        preparedStatement.setString(2, book.getAuthor());
-        preparedStatement.setInt(3, book.getAmount());
-        preparedStatement.executeUpdate();
-        DB.close(null, preparedStatement, null);
+        Session session = HibernateUtil.getSession();
+        session.save(book);
+        session.beginTransaction().commit();
+        session.close();
         return "add_success";
     }
 
     public String list() throws Exception {
-        PreparedStatement preparedStatement = connection.prepareStatement("select * from book");
-        ResultSet resultSet = preparedStatement.executeQuery();
-        List<Book> books = new ArrayList<Book>();
-        while (resultSet.next()) {
-            Book book = new Book(resultSet.getInt("id"), resultSet.getString("title"), resultSet.getString("author"), resultSet.getInt("amount"));
-            books.add(book);
-        }
-        getSession().put("books", books);
+        Session session = HibernateUtil.getSession();
+        Query query = session.createQuery("FROM Book");
+        getSession().put("books", query.list());
+        session.close();
         return "list_success";
     }
 
     public String search() throws Exception {
-        PreparedStatement preparedStatement = connection.prepareStatement("select * from book where id=?");
-        preparedStatement.setInt(1, book.getId());
-        ResultSet resultSet = preparedStatement.executeQuery();
-        resultSet.next();
-        Book book = new Book(resultSet.getInt("id"), resultSet.getString("title"), resultSet.getString("author"), resultSet.getInt("amount"));
-        getSession().put("book", book);
-        DB.close(resultSet, preparedStatement, null);
+        Session session = HibernateUtil.getSession();
+        getSession().put("book", session.get(Book.class, book.getId()));
+        session.close();
         return "search_success";
     }
 
     public String update() throws Exception {
-        PreparedStatement preparedStatement = connection.prepareStatement("update book set title=?, author=?, amount=? where id=?");
-        preparedStatement.setString(1, book.getTitle());
-        preparedStatement.setString(2, book.getAuthor());
-        preparedStatement.setInt(3, book.getAmount());
-        preparedStatement.setInt(4, book.getId());
-        preparedStatement.executeUpdate();
+        Session session = HibernateUtil.getSession();
+        session.update(book);
+        session.beginTransaction().commit();
+        session.close();
         return "update_success";
     }
 
     public String remove() throws Exception {
-        PreparedStatement preparedStatement = connection.prepareStatement("delete from book where id=?");
-        preparedStatement.setInt(1, book.getId());
-        preparedStatement.executeUpdate();
-        DB.close(null, preparedStatement, null);
+        Session session = HibernateUtil.getSession();
+        session.delete(book);
+        session.beginTransaction().commit();
+        session.close();
         return "remove_success";
     }
 

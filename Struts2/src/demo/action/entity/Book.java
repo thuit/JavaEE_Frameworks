@@ -1,11 +1,17 @@
 package demo.action.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.io.Serializable;
 
 /**
  * Created by Administrator on 14-6-21.
  */
+@Entity
 public class Book implements Serializable {
+    @Id
+    @GeneratedValue
     private Integer id;
     private String title;
     private String author;
