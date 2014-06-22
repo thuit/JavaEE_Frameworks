@@ -1,19 +1,16 @@
 package demo.action;
 
 import demo.action.entity.Book;
-import demo.action.util.DB;
 import demo.action.util.HibernateUtil;
 import org.hibernate.Query;
 import org.hibernate.Session;
-
-import java.sql.Connection;
 
 /**
  * Created by Administrator on 14-6-21.
  */
 public class BookAction extends BaseAction {
+
     private Book book;
-    private Connection connection = DB.getConnection();
 
     public String add() throws Exception {
         Session session = HibernateUtil.getSession();

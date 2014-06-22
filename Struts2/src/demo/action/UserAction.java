@@ -1,24 +1,12 @@
 package demo.action;
 
 import demo.action.entity.User;
-import demo.action.util.DB;
 import demo.action.util.HibernateUtil;
-import org.apache.struts2.interceptor.RequestAware;
-import org.apache.struts2.interceptor.SessionAware;
 import org.hibernate.Query;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-import org.hibernate.cfg.Configuration;
-import org.hibernate.service.ServiceRegistry;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.util.List;
-import java.util.Map;
-import java.util.Objects;
 
 /**
  * Created by Administrator on 14-6-21.
@@ -26,7 +14,6 @@ import java.util.Objects;
 public class UserAction extends BaseAction {
 
     private User user;
-    private Connection connection = DB.getConnection();
 
     public String login() throws Exception {
         Session session = HibernateUtil.getSession();
