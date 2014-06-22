@@ -24,7 +24,7 @@ public class HibernateTest {
 
 //        insert DML
 
-        User user = new User(null, "a", "b");
+        User user = new User(null, "b", "b");
         session.save(user);//insert...
         transaction.commit();
 
@@ -50,7 +50,7 @@ public class HibernateTest {
 //        User user = (User) session.get(User.class, 1);//select * from user where id=1;
 //        user.setPassword("a");
 //
-//        session.update(user);//update user set password='a' where id=1;
+//        session.updaqte(user);//update user set password='a' where id=1;
 //        transaction.commit();
 
 //               DML delete
