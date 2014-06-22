@@ -18,15 +18,15 @@ public class HibernateTest {
     public static void main(String[] args) {
         Configuration configuration = new Configuration().configure();
         ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
-        SessionFactory sessionFactory = configuration.buildSessionFactory(serviceRegistry);
+        SessionFactory sessionFactory = configuration.buildSessionFactory(serviceRegistry);//Hibernate4.0
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
 
 //        insert DML
 
-//        User user = new User(null, "c", "d");
-//        session.save(user);//insert...
-//        transaction.commit();
+        User user = new User(null, "a", "b");
+        session.save(user);//insert...
+        transaction.commit();
 
 //        DQL
 
@@ -55,9 +55,9 @@ public class HibernateTest {
 
 //               DML delete
 
-        User user = (User) session.get(User.class, 1);
-        session.delete(user);
-        transaction.commit();
+//        User user = (User) session.get(User.class, 1);
+//        session.delete(user);
+//        transaction.commit();
 
         session.close();
         sessionFactory.close();

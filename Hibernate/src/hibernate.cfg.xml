@@ -15,7 +15,7 @@
         <!-- HiBernate Mapping to Data Definition Language  -->
         <property name="hbm2ddl.auto">update</property>
 
-        <mapping resource="demo/hibernate/user.xml"/>
+        <mapping class="demo.hibernate.entity.User"/>
 
     </session-factory>
 </hibernate-configuration>

@@ -1,11 +1,18 @@
 package demo.hibernate.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.io.Serializable;
 
 /**
  * Created by Administrator on 14-6-22.
  */
+@Entity
 public class User implements Serializable {
+    @Id
+    @GeneratedValue
     private Integer id;
     private String username;
     private String password;
