@@ -1,4 +1,4 @@
-package demo.action.util;
+package demo.util;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

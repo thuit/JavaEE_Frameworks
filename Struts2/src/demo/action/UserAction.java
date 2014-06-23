@@ -1,6 +1,6 @@
 package demo.action;
 
-import demo.action.entity.User;
+import demo.entity.User;
 import demo.action.util.HibernateUtil;
 import org.hibernate.Query;
 import org.hibernate.Session;
