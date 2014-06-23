@@ -1,7 +1,7 @@
 package demo.action;
 
-import demo.action.entity.Book;
-import demo.action.util.HibernateUtil;
+import demo.entity.Book;
+import demo.util.HibernateUtil;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
