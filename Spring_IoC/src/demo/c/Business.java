@@ -1,23 +1,22 @@
 package demo.c;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
+
 /**
  * Created by Administrator on 14-6-28.
  */
+@Component
 public class Business {
 //    ?
+    @Autowired//自动装配
+    @Qualifier(value = "u")
     private DeviceWriter deviceWriter;
-
-    public Business(DeviceWriter deviceWriter) {
-        this.deviceWriter = deviceWriter;
-    }
 
     public void save() {
         deviceWriter.save2Device();//NPE
     }
-
-//    public void setDeviceWriter(DeviceWriter deviceWriter) {
-//        this.deviceWriter = deviceWriter;
-//    }
 }
 
 //高层应用类不再依赖于底层模块类
