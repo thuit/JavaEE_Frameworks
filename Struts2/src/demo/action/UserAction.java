@@ -33,9 +33,8 @@ public class UserAction extends BaseAction {
 
     public String signup() throws Exception {
         Session session = HibernateUtil.getSession();
-        Transaction transaction = session.beginTransaction();
         session.save(user);//connection
-        transaction.commit();
+        session.beginTransaction().commit();
         session.close();
         return "signup_success";
     }
