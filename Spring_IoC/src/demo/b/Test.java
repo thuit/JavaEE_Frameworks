@@ -6,8 +6,11 @@ package demo.b;
  */
 public class Test {
     public static void main(String[] args) {
-//        Bussiness bussiness = new Bussiness(new FloppyWriter());
-        Bussiness bussiness = new Bussiness(new USBWriter());
-        bussiness.save();
+//        Business business = new Business(new FloppyWriter());
+//        Business business = new Business(new USBWriter());
+
+        Business business = new Business();
+        business.setDeviceWriter(new USBWriter());
+        business.save();
     }
 }

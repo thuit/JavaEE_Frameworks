@@ -3,16 +3,20 @@ package demo.b;
 /**
  * Created by Administrator on 14-6-28.
  */
-public class Bussiness {
+public class Business {
 //    ?
     private DeviceWriter deviceWriter;
 
-    public Bussiness(DeviceWriter deviceWriter) {
-        this.deviceWriter = deviceWriter;
-    }
+//    public Business(DeviceWriter deviceWriter) {
+//        this.deviceWriter = deviceWriter;
+//    }
 
     public void save() {
-        deviceWriter.save2Device();
+        deviceWriter.save2Device();//NPE
+    }
+
+    public void setDeviceWriter(DeviceWriter deviceWriter) {
+        this.deviceWriter = deviceWriter;
     }
 }
 

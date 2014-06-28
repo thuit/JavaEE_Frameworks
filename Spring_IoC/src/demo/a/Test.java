@@ -6,7 +6,7 @@ package demo.a;
 
 public class Test {
     public static void main(String[] args) {
-        Bussiness bussiness = new Bussiness();
-        bussiness.save();
+        Business business = new Business();
+        business.save();
     }
 }

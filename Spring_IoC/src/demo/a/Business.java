@@ -4,7 +4,7 @@ package demo.a;
  * Created by Administrator on 14-6-28.
  */
 //高层应用类 调用了底层模块类
-public class Bussiness {//业务
+public class Business {//业务
 
     private FloppyWriter floppyWriter = new FloppyWriter();
 
