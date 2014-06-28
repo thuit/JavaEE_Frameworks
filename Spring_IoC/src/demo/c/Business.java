@@ -7,17 +7,17 @@ public class Business {
 //    ?
     private DeviceWriter deviceWriter;
 
-//    public Business(DeviceWriter deviceWriter) {
-//        this.deviceWriter = deviceWriter;
-//    }
+    public Business(DeviceWriter deviceWriter) {
+        this.deviceWriter = deviceWriter;
+    }
 
     public void save() {
         deviceWriter.save2Device();//NPE
     }
 
-    public void setDeviceWriter(DeviceWriter deviceWriter) {
-        this.deviceWriter = deviceWriter;
-    }
+//    public void setDeviceWriter(DeviceWriter deviceWriter) {
+//        this.deviceWriter = deviceWriter;
+//    }
 }
 
 //高层应用类不再依赖于底层模块类

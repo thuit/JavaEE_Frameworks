@@ -13,7 +13,7 @@ public class Test {
 //        business.setDeviceWriter(new USBWriter());
 //        business.save();
 
-        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("demo/c/beans.xml");
         Business business = (Business) applicationContext.getBean("business");
         business.save();
     }
