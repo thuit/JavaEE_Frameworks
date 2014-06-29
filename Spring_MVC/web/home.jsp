@@ -13,6 +13,8 @@
 <body>
 <h1>Home Page</h1>
 ${sessionScope.user.username}<br>
+${sessionScope.user.password}<br>
+${sessionScope.user.id}<br>
 <a href="/user/logout">logout</a>
 </body>
 </html>

@@ -23,7 +23,6 @@ import java.util.List;
 public class UserController extends BaseController {
 
     @Autowired
-    @Qualifier(value = "JDBCDao")
     private userDao userDao;
 
     @RequestMapping("/signup")
@@ -32,22 +31,17 @@ public class UserController extends BaseController {
         return "redirect:/index.jsp";
     }
 
-//    @RequestMapping("/login")
-//    public String login(User user) {
-//        Session session = sessionFactory.openSession();
-//        Query query = session.createQuery("FROM User where username=:username and password=:password");
-//        query.setString("username", user.getUsername());
-//        query.setString("password", user.getPassword());
-//        List<User> users = query.list();
-//        session.close();
-//        if (users.size() > 0) {
-//            getSession().setAttribute("user", user);
-//            return "redirect:/home.jsp";
-//        } else {
-//            getRequest().setAttribute("message", "invalid username or password.");
-//            return "/index";
-//        }
-//    }
+    @RequestMapping("/login")
+    public String login(User user) {
+        user = userDao.login(user);
+        if (user != null) {
+            getSession().setAttribute("user", user);
+            return "redirect:/home.jsp";
+        } else {
+            getRequest().setAttribute("message", "invalid username or password.");
+            return "/index";
+        }
+    }
 
     @RequestMapping("/logout")
     public String logout() {
