@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 /**
  * Created by Administrator on 14-6-28.
  */
-@Component
+@Component//floppyWriter
 public class FloppyWriter implements DeviceWriter {
     @Override
     public void save2Device() {

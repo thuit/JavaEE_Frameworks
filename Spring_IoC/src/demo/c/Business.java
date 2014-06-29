@@ -7,11 +7,11 @@ import org.springframework.stereotype.Component;
 /**
  * Created by Administrator on 14-6-28.
  */
-@Component
+@Component//business
 public class Business {
-//    ?
+
     @Autowired//自动装配
-    @Qualifier(value = "u")
+    @Qualifier(value = "floppyWriter")
     private DeviceWriter deviceWriter;
 
     public void save() {
