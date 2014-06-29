@@ -28,9 +28,9 @@
         <param-value>classpath:*.xml</param-value>
     </context-param>
 
-    <listener>
-        <listener-class>demo.TestListener</listener-class>
-    </listener>
+    <!--<listener>-->
+        <!--<listener-class>demo.TestListener</listener-class>-->
+    <!--</listener>-->
 
     <!--spring 转发servlet-->
     <servlet>
